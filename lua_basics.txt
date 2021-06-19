@@ -1,0 +1,40 @@
+References:
+	http://www.lua.org/manual/5.3/manual.html#2
+	Programming in Lua
+Basics:
+	extension language, written in clean C
+	no notion of "main" program
+	works in a host client
+	can register C functions tobe called by Lua code 
+	dynamically typed language, like python, variables do ont have types but values do
+
+Values and types
+	eight basic types in Lua: nil, boolean, number, string, function, userdata, thread, and table.
+	boolean: Both nil and false make a condition false
+	Lua is 8-bit clean: strings can contain any 8-bit value, including embedded zeros ('\0')
+	number: integer, float
+	userdata allows arbitrary C data to be stored in Lua variables. Userdata values cannot be created or modified in Lua, only through the C API.
+		full userdata 
+		light userdata (a C pointer value)
+	thread is used to implement coroutines
+	table: can have as indices any lua value except nil and NaN, and can be heterogeneous (contain values of all types except nil)
+	Tables, functions, threads, and (full) userdata values are objects: variables do not actually contain these values, only references to them.
+
+Coroutines, a.k.a.  collaborative multithreading. 
+	 coroutine.create
+	 coroutine.resume
+	 coroutine.yield 
+	 coroutine.wrap
+	 C API: lua_newthread, lua_resume, and lua_yield
+
+The Language, Lexical Conventions
+	reserved words: then, until, goto, elseif, repeat, in ...
+	case-sensitive, e.g. And is different from AND
+	avoid creating names that start with an underscore followed by one or more uppercase letters (such as _VERSION)
+	other tokens: ~=, |, {}, .., ..., //, #, ::
+	short literal string (ASCii code):
+		\xXX, where XX is a sequence of exactly two hexadecimal digits
+		\ddd, where ddd is a sequence of up to three decimal digits 
+	
+		
+	

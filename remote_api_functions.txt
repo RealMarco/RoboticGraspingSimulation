@@ -1,0 +1,27 @@
+#refer to 
+for python api:       https://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsPython.htm  
+for lua(child script) https://www.coppeliarobotics.com/helpFiles/en/apiFunctions.htm#signals
+#Legacy remote API
+
+number result,number info=simxGetOutMessageInfo(number clientID,number infoType)
+number result,number info=simxGetInMessageInfo(number clientID,number infoType)
+
+number returnCode=simxPauseCommunication(number clientID,boolean pause)
+
+simxQuery is deprecated: number returnCode,string retSignalValue=simxQuery(number clientID,string signalName,string signalValue,string retSignalName,number timeOutInMs)
+
+simxGetStringSignal, simxClearStringSignal, simxGetIntegerSignal 
+simxGetFloatSignal, simxClearFloatSignal, simxSetFloatSignal 
+simxGetArrayParameter, simxSetArrayParameter 
+string signals: simxPackInts, simxPackFloats, simxUnpackInts and simxUnpackFloats, sim.packInt32Table, unpackInt32Table
+
+simxReadStringStream, simxWriteStringStream
+
+simxGetObjectFloatParameter, simxSetObjectFloatParameter
+
+number returnCode=simxSynchronousTrigger(number clientID)
+see details in https://www.coppeliarobotics.com/helpFiles/en/remoteApiModusOperandi.htm#synchronous
+
+number returnCode,array handles,array intData,array floatData,array stringData=simxGetObjectGroupData(number clientID,number objectType,number dataType,number operationMode)
+
+simxCallScriptFunction is a generic function 

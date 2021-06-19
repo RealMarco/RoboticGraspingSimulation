@@ -1,0 +1,145 @@
+#User' Mannual of CoppeliaSim (Chinese Version) 1st part: https://blog.csdn.net/Csdn_Darry/article/details/107142216
+#User' Mannual of CoppeliaSim (Chinese Version) 2nd part:https://www.taodudu.cc/news/show-1759180.html
+#VREP-ROS Bridge https://blog.csdn.net/Csdn_Darry/article/details/108863576
+# A simple grasping demo with UR5: https://blog.csdn.net/qq_39243015/article/details/106247956
+#remote API https://mp.weixin.qq.com/s/gm-iXhev_Shfknb9khp9Rw
+#acquiring images by Python https://blog.csdn.net/qq_29945727/article/details/98469621
+
+#Download, install and run the CoppeliaSim (a.k.a VREP)
+$ mkdir ~/vrep_ws/src
+$ sudo tar -xvf CoppeliaSim_Edu_V4_2_0_Ubuntu20_04.tar.xz -C /home/marco/vrep_ws/src
+$ cd /home/marco/vrep_ws/src/CoppeliaSim_Edu_V4_2_0_Ubuntu20_04
+$ ./coppeliaSim.sh
+
+#Steps of Creating a Grasping Simulation Platform
+0.Initialize the simulated grasping environment, joint params,  √
+
+1. Python API (Remote) or Controling by Python Scripts. PyRep √
+
+2. Calibration and Frames
+
+3. Inverse Kinematics (IK) Calculations; Path/Motion Planning via OMPL library  √
+	(a). 
+	(b). define tip and base, generate target, message with simulator, pay attention to the xyz frame of target and tip dummy  √
+
+
+4. Objects and Poses: 
+	a).模拟流水线或人手放置，
+	b).将物体pick and place到RGBD相机之外的位置 √
+	
+4.5 get the vision sensor images by remote API of Python, such as simxGetVisionSensorImage, which is metioned in “messaging/interface/connectivity“. Then processing the images by python. √
+	a).acquire depth and rgb images Circularly to make a continuous workflow √
+	b).server send msg to client to acquire the images before grasping the objects,√
+	c).inference in the client side: change the code, python to linux √
+	
+$ python run_offline.py --network /home/marco/vrep_python/trained-models/cornell-randsplit-rgbd-grconvnet3-drop1-ch32/epoch_19_iou_0.98 --rgb_path /home/marco/vrep_python/cornell_samples/pcd0222r.png --depth_path /home/marco/vrep_python/cornell_samples/pcd0222d.tiff --save 1
+
+Ques:
+	a).camera_data.py depth image与rgb image的normalise的处理一样 - 使用同样尺度的RGB & D通道
+	
+	d) then the client send the grasp info (x,y,angle,width) to the server to implement the grasping. √
+	e).some deviations between rgb and depth images - wait for a second or adjust the camera's position to solve it √
+5. crop or not when inference images (the default size of images acquired by Kinect is 640x480) - input 224x224 images directly. √
+(6. Image Processing via Plugin,like bridge to OpenCV, vision plugin) √
+7. 2D Grasping Simulation, inference the simulation pics √
+8. set IK element (tip, target, base) and IK group, constrains and compute it. (IK API for python) √
+	a). can't set joints in IK mode via GUI - GUI is deprecated √
+	
+
+较高的物体抓取失败，主要是由于二维抓取，可以根据物体设置target dummy的z坐标，或不考虑较高物体并在论文中说明局限性。
+
+keys:
+	a).grasp an object from a to b √
+	b).put the object on the ground √
+	c).Match the frame of tip and the one of target, constraint the grasping in plane.√
+	
+Depth images:
+	a). inputing depth image is not reasonable - may need to be normalised
+	b)  inferencing output depth image error, 
+	c)  can we use the depth information in depth image to infer the height of object and the z grasping coordinate - refer to local depth info instead of the global info when achieve multple grasping
+
+#Optional
+9.4 multiple grasps detection and application in cluttered,(stacked, hidden) scene: 
+	a).generate n grasps at the 1st time,
+	b).generate 1 grasps every time.
+	c).待抓取物体数/抓取成功率=为复杂场景设定的抓取次数。
+9.5. consider grasps' width as a judgement
+(10. Data Recording and Visualization -  recording the simulation process, the lens of recording can be switched according to requirements 
+11. Record Grasping Sucess Rate automatically or present the results in scene, how?)
+
+12 Remote API B0-based remote API: one hundred specific fuctions and one generic function named simxCallScriptFunction √
+13 compare with the default motion planning and grasp algorithms. √
+
+
+P.S. About Grasp Detection
+1. Try to use GRCNN v2.0.0 to train cornell
+2. Attempt to find Pre -trained Jacquard Dataset
+3. Transfer Learning is not work may be caused by different Pre-processing
+
+#Samples to be learnt
+path_planning_and_grasping.ttt
+ikPathGeneration.ttt
+smoothMovementsInFkAndIk.ttt
+reflexxesMotionLibraryDemo.ttt
+ur5WithRg2Grasping.ttt
+	unknown params: maxJerk, auxData
+---------------------------------
+blueZeroDemo1.ttt
+synchronousImageTransmissionViaRemoteApi.ttt
+controlledViaB0RemoteApi.ttt
+---------------------------------
+imageProcessingDemo.ttt
+
+
+# Building VREP-ROS Bridge
+#Open a new ternimal 
+$ cd ~/vrep_ws/src
+$ git clone --recursive https://github.com/CoppeliaRobotics/simExtROS.git sim_ros_interface
+$ cd sim_ros_interface
+$ git checkout coppeliasim-v4.2.0
+
+$ gedit ~/.bashrc
+#Add
+export COPPELIASIM_ROOT_DIR=/home/marco/vrep_ws/src/CoppeliaSim_Edu_V4_2_0_Ubuntu20_04/
+$ source ~/.bashrc
+$ env |grep ROOT
+
+$ cd ~/vrep_ws
+
+--Child scripts (RG2) from ur5WithRG2Grasping
+function sysCall_init()
+    modelBase=sim.getObjectHandle(sim.handle_self)
+    motorHandle=sim.getObjectHandle('RG2_openCloseJoint')
+end
+
+
+function sysCall_actuation()
+    local activity=sim.readCustomDataBlock(modelBase,'activity')
+    if activity then
+        activity=sim.unpackTable(activity)
+    else
+        activity={velocity=0,force=0}
+    end
+
+    sim.setJointTargetVelocity(motorHandle,activity.velocity)
+    sim.setJointMaxForce(motorHandle,activity.force)
+end
+
+--Default Child scripts (RG2) 
+function sysCall_init()
+    motorHandle=sim.getObjectHandle('RG2_openCloseJoint')
+    motorVelocity=0.05 -- m/s
+    motorForce=20 -- N
+end
+
+
+function sysCall_actuation()
+    local v=-motorVelocity
+    local data=sim.getIntegerSignal('RG2_open')
+    if data and data~=0 then
+        v=motorVelocity
+    end
+    sim.setJointMaxForce(motorHandle,motorForce)
+    sim.setJointTargetVelocity(motorHandle,v)
+end
+
