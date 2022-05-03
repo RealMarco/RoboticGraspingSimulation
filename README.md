@@ -1,5 +1,6 @@
 # Robotic Grasping Simulation based on CoppeliaSim
-To verify/test the performance of rectangle-represented grasp detection algorithms, this project builts a joint simulation environment in CoppeliaSim (Vrep) based on the UR3 robot, RG2 gripper and a RGB-D camera. 
+To verify/test the performance of rectangle-represented grasp detection algorithms, this project builts a joint simulation environment in CoppeliaSim (Vrep) based on the UR3 robot, RG2 gripper and a RGB-D camera.   
+
 This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by emailing *yjliu_marco@foxmail.com*. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
 
 ## Requirements  
@@ -32,10 +33,10 @@ The detailed instructions in English will be updated soon
 To be updated
 
 ## Citing
-The GR-ConvNet used in this software is proposed and described in the paper *Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network* and the GitHub respiratory at https://github.com/skumra/robotic-grasping.
+The GR-ConvNet used in this software is proposed and described in the paper *[Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network](https://arxiv.org/abs/1909.04810)* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping).
 
 If you are using this RoboticGraspingSimulation code, please add the following citation to your publication:
-
+```
 @misc{liu2021rgs,
   author = {Yangjun Liu},
   title = {Robotic Grasping Simulation based on CoppeliaSim},
@@ -44,9 +45,10 @@ If you are using this RoboticGraspingSimulation code, please add the following c
   journal = {GitHub Repository},
   howpublished = {\url{https://github.com/RealMarco/RoboticGraspingSimulation}}
 }
+```
 
 or cite it as https://www.wikihow.com/Cite-a-GitHub-Repository.
 
 ## Further Development
-If you are going to improve the simulation code with more functions, please refer to https://www.coppeliarobotics.com/helpFiles/
+If you are going to improve the simulation code with more functions, please refer to https://www.coppeliarobotics.com/helpFiles/  
 Welcome to pull requests so that we could collaborate on this project and make it better.
