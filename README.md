@@ -6,7 +6,7 @@ This is an easy-to-use framework if you wanna start your journey in robotic gras
 **Author**: [Yangjun Liu](https://github.com/RealMarco/), marcoliu@nuaa.edu.cn  
 **Affiliation**: Institute of Precision Drive and Control, State Key Laboratory of Mechanics and Control of Mechanical Structures  
 
-![RGS example: simulation platform](RoboticGraspingSimulation/blob/main/simulation_platform4.png)
+![RGS example: simulation platform](simulation_platform4.png)
 
 
 ## Requirements  
