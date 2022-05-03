@@ -1,7 +1,13 @@
 # Robotic Grasping Simulation based on CoppeliaSim
 To verify/test the performance of rectangle-represented grasp detection algorithms, this project builts a joint simulation environment in CoppeliaSim (Vrep) based on the UR3 robot, RG2 gripper and a RGB-D camera.   
 
-This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by emailing *yjliu_marco@foxmail.com*. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
+This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by email. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
+
+**Author**: [Yangjun Liu](https://github.com/RealMarco/), marcoliu@nuaa.edu.cn  
+**Affiliation**: Institute of Precision Drive and Control, State Key Laboratory of Mechanics and Control of Mechanical Structures  
+
+![RGS example: simulation platform](RoboticGraspingSimulation/blob/main/simulation_platform4.png)
+
 
 ## Requirements  
 A python interpreter, PyTorch, CoppeliaSim (Vrep).  
@@ -29,13 +35,16 @@ RoboticGraspingWIthUR3_v4.ttt内部的UR3 child script实现机械臂的控制�
 ## Instructions
 The detailed instructions in English will be updated soon
 
+## Results
+[Sample video for multi-object robotic grasping in unstructured scenario](https://github.com/RealMarco/RoboticGraspingSimulation/blob/main/multi-object%20Grasping%20Simulation.mp4)
+
 ## CoppeliaSim-ROS based Simulation
 To be updated
 
 ## Citing
 The GR-ConvNet used in this software is proposed and described in the paper *[Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network](https://arxiv.org/abs/1909.04810)* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping).
 
-If you are using this RoboticGraspingSimulation code, please add the following citation to your publication:
+If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
 ```
 @misc{liu2021rgs,
   author = {Yangjun Liu},
