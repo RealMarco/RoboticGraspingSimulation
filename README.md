@@ -42,7 +42,7 @@ The detailed instructions in English will be updated soon
 To be updated
 
 ## Citing
-The GR-ConvNet used in this software is proposed and described in the paper *[Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network](https://arxiv.org/abs/1909.04810)* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping). Plz cite Kumra's paper if you are using this Deep Learning model.  
+The GR-ConvNet used in this software is proposed and described in the paper *[Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network](https://arxiv.org/abs/1909.04810)* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping). Plz cite Kumra's paper if you are using that Deep Learning model.  
 
 If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
 ```
