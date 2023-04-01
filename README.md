@@ -3,7 +3,7 @@ To verify/test the performance of rectangle-represented grasp detection algorith
 
 This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by email. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
 
-**Author**: [Yangjun Liu](https://github.com/RealMarco/), marcoliu@nuaa.edu.cn  
+**Author**: [Marco Yangjun Liu](https://github.com/RealMarco/), marcoliu@nuaa.edu.cn  
 **Affiliation**: Institute of Precision Drive and Control, State Key Laboratory of Mechanics and Control of Mechanical Structures  
 
 ![RGS example: simulation platform](simulation_platform4.png)
@@ -19,7 +19,20 @@ To use the remote API functionality of Legacy Client in your Python script, you 
 
 Above files are located in CoppeliaSim's installation directory, under programming/remoteApiBindings/python.  
 
-## 中文使用说明
+## Instructions  
+Object models come from YCB model and object set - http://www.ycbbenchmarks.com/object-models/   
+
+0. Install all the dependencies under requirements.txt to anaconda (recommended, system python environment or other virtual python environment is fine)   
+1. Open CoppeliaSim and any python interpreter under anaconda  
+2. import the scene file RoboticGraspingWIthUR3_v4.ttt into CoppeliaSim  
+3. Type simRemoteApi.start(19999) in the Lua command line at the bottom of the CoppeliaSim page to start the Legacy server  
+4. Execute the file remote_simulation.py in python interpreter to detect the capture position, angle, etc. and instruct the server side to capture.  
+
+P.S.  
+remote_simulation.py loads the trained GR-convNet model to detect the grasping position and pass the relevant information to the server side to guide the grasping;  
+RoboticGraspingWIthUR3_v4.ttt internal UR3 child script implements the control and grasping of the robotic arm  
+
+## 中文使用说明 (Chinese Instructions)
 物体模型来源 YCB model and object set - http://www.ycbbenchmarks.com/object-models/  
 
 0、安装requirements.txt下的所有依赖包到anaconda（建议，系统python环境或其他虚拟python环境也可）  
@@ -31,9 +44,6 @@ Above files are located in CoppeliaSim's installation directory, under programmi
 P.S.   
 remote_simulation.py 加载训练好的GR-convNet模型检测抓取位姿，并将相关信息传递给服务端指导抓取；  
 RoboticGraspingWIthUR3_v4.ttt内部的UR3 child script实现机械臂的控制与抓取
-
-## Instructions
-The detailed instructions in English will be updated soon
 
 ## Results
 [Sample video for multi-object robotic grasping in unstructured scenario](https://github.com/RealMarco/RoboticGraspingSimulation/blob/main/multi-object%20Grasping%20Simulation.mp4)
