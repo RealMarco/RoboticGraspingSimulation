@@ -51,7 +51,7 @@ RoboticGraspingWIthUR3_v4.ttt内部的UR3 child script实现机械臂的控制�
 ## CoppeliaSim-ROS based Simulation
 To be updated
 
-## Citing
+## Citation  
 The GR-ConvNet used in this software is proposed and described in the paper *Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping). Plz cite Kumra's paper if you are using that Deep Learning model.  
 
 If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
