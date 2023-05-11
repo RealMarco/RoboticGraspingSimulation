@@ -21,6 +21,7 @@ Above files are located in CoppeliaSim's installation directory, under programmi
 
 To connect coppeliasim with ROS
 - libsimExtROSInterface.so   in CoppeliaSim_root
+- libv_repExtRosInterface.so   copy it into each of the worker directories from the utils directory
 
 ## Instructions  
 Object models come from YCB model and object set - http://www.ycbbenchmarks.com/object-models/   
