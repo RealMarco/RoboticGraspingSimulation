@@ -17,7 +17,10 @@ To use the remote API functionality of Legacy Client in your Python script, you 
 - simConst.py  
 - remoteApi.dll, remoteApi.dylib or remoteApi.so (depending on your target platform)  
 
-Above files are located in CoppeliaSim's installation directory, under programming/remoteApiBindings/python.  
+Above files are located in CoppeliaSim's installation directory, under programming/remoteApiBindings/python. 
+
+To connect coppeliasim with ROS
+- libsimExtROSInterface.so   in CoppeliaSim_root
 
 ## Instructions  
 Object models come from YCB model and object set - http://www.ycbbenchmarks.com/object-models/   
