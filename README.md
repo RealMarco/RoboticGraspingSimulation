@@ -4,7 +4,7 @@ To verify/test the performance of rectangle-represented grasp detection algorith
 This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by email. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
 
 **Author**: [Marco Yangjun Liu](https://github.com/RealMarco/),  
-**Affiliation**: Institute of Precision Drive and Control, State Key Laboratory of Mechanics and Control of Mechanical Structures  
+**Affiliation**: Centre for Artificial Intelligence and Robotics, University of Macau; Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences 
 
 ![RGS example: simulation platform](simulation_platform4.png)
 
@@ -62,14 +62,14 @@ The GR-ConvNet used in this software is proposed and described in the paper *Ant
 
 If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
 ```
-@misc{liu2021rgs,
-  author = {Yangjun Liu},
-  title = {Robotic Grasping Simulation based on CoppeliaSim},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub Repository},
-  howpublished = {\url{https://github.com/RealMarco/RoboticGraspingSimulation}}
-}
+@ARTICLE{fp2at,
+  author={Liu, Yangjun and Liu, Sheng and Chen, Binghan and Yang, Zhi-Xin and Xu, Sheng},
+  journal={IEEE Transactions on Robotics}, 
+  title={Fusion-Perception-to-Action Transformer: Enhancing Robotic Manipulation With 3-D Visual Fusion Attention and Proprioception}, 
+  year={2025},
+  volume={41},
+  pages={1553-1567},
+
 ```
 
 or cite it as https://www.wikihow.com/Cite-a-GitHub-Repository.
