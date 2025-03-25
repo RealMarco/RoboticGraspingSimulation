@@ -6,6 +6,21 @@ This is an easy-to-use framework if you wanna start your journey in robotic gras
 **Author**: [Marco Yangjun Liu](https://github.com/RealMarco/),  
 **Affiliation**: Centre for Artificial Intelligence and Robotics, University of Macau; Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences 
 
+## Citation  
+The GR-ConvNet used in this software is proposed and described in the paper *Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping). Plz cite Kumra's paper if you are using that Deep Learning model.  
+
+If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
+```
+@ARTICLE{fp2at,
+  author={Liu, Yangjun and Liu, Sheng and Chen, Binghan and Yang, Zhi-Xin and Xu, Sheng},
+  journal={IEEE Transactions on Robotics}, 
+  title={Fusion-Perception-to-Action Transformer: Enhancing Robotic Manipulation With 3-D Visual Fusion Attention and Proprioception}, 
+  year={2025},
+  volume={41},
+  pages={1553-1567},
+
+```
+
 ![RGS example: simulation platform](simulation_platform4.png)
 
 ## Updates
@@ -56,23 +71,6 @@ RoboticGraspingWIthUR3_v4.ttt内部的UR3 child script实现机械臂的控制�
 
 ## CoppeliaSim-ROS based Simulation
 To be updated
-
-## Citation  
-The GR-ConvNet used in this software is proposed and described in the paper *Antipodal Robotic Grasping using Generative Residual Convolutional Neural Network* and its [GitHub respiratory](https://github.com/skumra/robotic-grasping). Plz cite Kumra's paper if you are using that Deep Learning model.  
-
-If you are using this Robotic Grasping Simulation code, please add the following citation to your publication:
-```
-@ARTICLE{fp2at,
-  author={Liu, Yangjun and Liu, Sheng and Chen, Binghan and Yang, Zhi-Xin and Xu, Sheng},
-  journal={IEEE Transactions on Robotics}, 
-  title={Fusion-Perception-to-Action Transformer: Enhancing Robotic Manipulation With 3-D Visual Fusion Attention and Proprioception}, 
-  year={2025},
-  volume={41},
-  pages={1553-1567},
-
-```
-
-or cite it as https://www.wikihow.com/Cite-a-GitHub-Repository.
 
 ## Further Development
 If you are going to improve the simulation code with more functions, please refer to https://www.coppeliarobotics.com/helpFiles/  
