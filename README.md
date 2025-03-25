@@ -3,7 +3,7 @@ To verify/test the performance of rectangle-represented grasp detection algorith
 
 This is an easy-to-use framework if you wanna start your journey in robotic grasping, either validating/testing your rectangle-represented grasp detection algorithms or forking the algorithm that I used. If you have any problems, please report issues or ask me directly by email. I'm glad to see there are few forks of this repository, please star it if u like and cite this GitHub project and reference as **Citing** section below.
 
-**Author**: [Marco Yangjun Liu](https://github.com/RealMarco/), 
+**Author**: [Marco Yangjun Liu](https://github.com/RealMarco/),  
 **Affiliation**: Institute of Precision Drive and Control, State Key Laboratory of Mechanics and Control of Mechanical Structures  
 
 ![RGS example: simulation platform](simulation_platform4.png)
